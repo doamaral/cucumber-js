@@ -6,19 +6,12 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 
 const helper = require("../../helpers/lib");
 
-function isItFriday(today) {
-  if(today == 'friday'){
-      return "Yes";
-  }
-  return "Nope";
-}
-
 Given("today is Sunday", function () {
     this.today = "sunday"
 });
 
 When("I ask whether it's Friday yet", function () {
-    this.actualAnswer = isItFriday(this.today);
+  this.actualAnswer = helper.isItFriday(this.today);
 });
 
 Then("I should be told {string}", function (expectedAnswer) {
